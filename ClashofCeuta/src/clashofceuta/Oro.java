@@ -30,7 +30,8 @@ public class Oro {
     public Oro(String icono, int duracionProduccion, int experienciaRecolecta, int precioVenta, int minar){
         this.icono = icono ;
         this.duracionProduccion = duracionProduccion ;
-        this.experienciaRecolecta = precioVenta ;
+        this.experienciaRecolecta = experienciaRecolecta ;
+        this.precioVenta = precioVenta ;
         this.minar = minar ;
     }
     public Oro(){
@@ -38,9 +39,55 @@ public class Oro {
     }
     
      public Oro(Oro otro){
-        this(otro.ICONO,otro.DURACION,otro.EXPERIENCIA,otro.PRECIO_VENTA,otro.MINAR );
+        this(otro.icono,otro.duracionProduccion,otro.experienciaRecolecta,otro.precioVenta,otro.minar );
+    }
+    //----------------------------------------
+    // Métodos getter
+    //----------------------------------------
+    public String getIcono() {
+        return icono;
     }
 
+    public int getDuracionProduccion() {
+        return duracionProduccion;
+    }
+
+    public int getExperienciaRecolecta() {
+        return experienciaRecolecta;
+    }
+
+    public int getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public int getMinar() {
+        return minar;
+    }
+    
+    //----------------------------------------
+    // Métodos setter
+    //----------------------------------------
+    public void setIcono(String icono) {
+        this.icono = icono;
+    }
+
+    public void setDuracionProduccion(int duracionProduccion) {
+        this.duracionProduccion = duracionProduccion;
+    }
+
+    public void setExperienciaRecolecta(int experienciaRecolecta) {
+        this.experienciaRecolecta = experienciaRecolecta;
+    }
+
+    public void setPrecioVenta(int precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
+    public void setMinar(int minar) {
+        this.minar = minar;
+    }
+    
+    
     @Override
     public String toString() {
         return "Oro{" + "icono=" + icono + ", duracionProduccion=" + duracionProduccion + ", experienciaRecolecta=" +
@@ -51,6 +98,7 @@ public class Oro {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Test creacion objeto oro
         Oro o1 = new Oro();
         Oro o2 = new Oro(Oro.ICONO,3,10,20,1);
         Oro o3 = new Oro(o1);
@@ -58,6 +106,21 @@ public class Oro {
         System.out.println(o1);
         System.out.println(o2);
         System.out.println(o3);
+        
+        //Test getters
+        System.out.println("Precio: " + o1.getPrecioVenta());
+        System.out.println("Duracion de la produccion: " + o1.getDuracionProduccion());
+        System.out.println("EXP: " + o1.getExperienciaRecolecta());
+        System.out.println("Path del incono: " + o1.getIcono());
+        
+        //Test setters
+        o1.setPrecioVenta(5);
+        System.out.println("Precio: " + o1.getPrecioVenta());
+        o1.setDuracionProduccion(10);
+        System.out.println("Duracion de la produccion: " + o1.getDuracionProduccion());
+        o1.setExperienciaRecolecta(50);
+        System.out.println("EXP: " + o1.getExperienciaRecolecta());
+        System.out.println(o1);
     }
     
 }
