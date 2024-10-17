@@ -23,6 +23,7 @@ public class Oro {
     private int experienciaRecolecta ;
     private int precioVenta ;
     private int minar ;
+    private TipoMina tipo;
     
     //----------------------------------------
     // Constructores
@@ -33,6 +34,7 @@ public class Oro {
         this.experienciaRecolecta = experienciaRecolecta ;
         this.precioVenta = precioVenta ;
         this.minar = minar ;
+        this.tipo = TipoMina.ORO;
     }
     public Oro(){
         this(ICONO,DURACION,EXPERIENCIA,PRECIO_VENTA,MINAR );
@@ -64,6 +66,9 @@ public class Oro {
         return minar;
     }
     
+    public TipoMina getTipo() {
+        return tipo;
+    }
     //----------------------------------------
     // Métodos setter
     //----------------------------------------
@@ -90,8 +95,16 @@ public class Oro {
     
     @Override
     public String toString() {
-        return "Oro{" + "icono=" + icono + ", duracionProduccion=" + duracionProduccion + ", experienciaRecolecta=" +
-                experienciaRecolecta + ", precioVenta=" + precioVenta + ", minar=" + minar + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Oro{");
+        sb.append("icono=").append(icono);
+        sb.append(", duracionProduccion=").append(duracionProduccion);
+        sb.append(", experienciaRecolecta=").append(experienciaRecolecta);
+        sb.append(", precioVenta=").append(precioVenta);
+        sb.append(", minar=").append(minar);
+        sb.append(", tipo=").append(tipo);
+        sb.append('}');
+        return sb.toString();
     }
     
     /**
@@ -111,14 +124,14 @@ public class Oro {
         System.out.println("Precio: " + o1.getPrecioVenta());
         System.out.println("Duracion de la produccion: " + o1.getDuracionProduccion());
         System.out.println("EXP: " + o1.getExperienciaRecolecta());
-        System.out.println("Path del incono: " + o1.getIcono());
+        System.out.println("Path del icono: " + o1.getIcono());
         
         //Test setters
         o1.setPrecioVenta(5);
         System.out.println("Precio: " + o1.getPrecioVenta());
         o1.setDuracionProduccion(10);
         System.out.println("Duracion de la produccion: " + o1.getDuracionProduccion());
-        o1.setExperienciaRecolecta(50);
+         o1.setExperienciaRecolecta(50);
         System.out.println("EXP: " + o1.getExperienciaRecolecta());
         System.out.println(o1);
     }
